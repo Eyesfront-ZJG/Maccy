@@ -6,8 +6,8 @@ class StoragePreferenceViewController: NSViewController, PreferencePane {
   let preferencePaneTitle = NSLocalizedString("preferences_storage", comment: "")
   let toolbarItemIcon = NSImage(named: .externaldrive)!
 
-  let sizeMin = 1
-  let sizeMax = 999
+  let sizeMin = 500
+  let sizeMax = 10000
 
   override var nibName: NSNib.Name? { "StoragePreferenceViewController" }
 
@@ -80,6 +80,7 @@ class StoragePreferenceViewController: NSViewController, PreferencePane {
     sizeTextField.formatter = sizeFormatter
     sizeStepper.minValue = Double(sizeMin)
     sizeStepper.maxValue = Double(sizeMax)
+    sizeStepper.increment = 500
   }
 
   private func populateSize() {
